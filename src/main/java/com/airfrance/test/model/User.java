@@ -5,6 +5,7 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.NonNull;
+import org.springframework.validation.annotation.Validated;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
@@ -22,10 +23,12 @@ public class User {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     
-    @NotBlank(message = "UserName is mandatory")
+    @NotBlank(message = "UserName should not be blank")
+    @NotEmpty(message = "UserName should not be empty")
+    @NotNull(message = "Username should not be null")
     private String username;
 
-    @NotBlank(message = "BirthDate is mandatory")
+    @NotNull(message = "Birth Date should not be null")
     private LocalDate birthDate;
 
     private String phoneNumber;
@@ -34,7 +37,7 @@ public class User {
 
     @ManyToOne
     @JoinColumn(name="country_code")
-    @NotBlank(message = "Country is mandatory")
+    @NotNull(message = "Country should not be null")
     private Country country;
     
 }

@@ -5,11 +5,17 @@ import com.airfrance.test.model.User;
 import com.airfrance.test.service.IUserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.validation.Errors;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.server.ResponseStatusException;
 
+import javax.validation.Valid;
+
 @RestController
 @RequestMapping("users")
+@Validated
 public class UserController {
     @Autowired
     IUserService userService;
@@ -17,13 +23,12 @@ public class UserController {
     @PostMapping("/create")
     @ResponseBody
     @ResponseStatus(value = HttpStatus.CREATED)
-    public User createUser(@RequestBody User user) {
+    public User createUser(@RequestBody @Valid User user) {
         try {
             return userService.createUser(user);
         } catch (Exception e){
             throw new ResponseStatusException(HttpStatus.BAD_REQUEST,e.getMessage());
         }
-        
     }
 
     @GetMapping("/{id}")
