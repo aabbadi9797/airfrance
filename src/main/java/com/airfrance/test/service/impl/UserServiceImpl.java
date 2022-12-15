@@ -5,11 +5,13 @@ import com.airfrance.test.model.User;
 import com.airfrance.test.repository.UserRepository;
 import com.airfrance.test.service.IUserService;
 import com.airfrance.test.util.DateUtils;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 
 @Service
+@Slf4j
 public class UserServiceImpl implements IUserService {
 
     @Autowired
