@@ -58,5 +58,3 @@ After running the project you can see the API in the Swagger documentation , acc
 
 
 ![alt text](https://github.com/aabbadi9797/airfrance/blob/main/SWAGGER.bmp)
-
-## Project tutorial
