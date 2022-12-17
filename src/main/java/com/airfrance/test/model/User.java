@@ -4,24 +4,24 @@ import com.airfrance.test.enums.Gender;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import lombok.NonNull;
-import org.springframework.validation.annotation.Validated;
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
 
-import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
 import java.time.LocalDate;
 
-@Entity
+/**
+ * User Entity
+ */
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-@Table(name="USERS")
+@Document(collection="USERS")
 public class User {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private String id;
     
     @NotBlank(message = "UserName should not be blank")
     @NotEmpty(message = "UserName should not be empty")
@@ -34,9 +34,7 @@ public class User {
     private String phoneNumber;
     
     private Gender gender;
-
-    @ManyToOne
-    @JoinColumn(name="country_code")
+    
     @NotNull(message = "Country should not be null")
     private Country country;
     

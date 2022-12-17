@@ -3,16 +3,17 @@ package com.airfrance.test.model;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
 
-@Entity
+/**
+ * Country Entity
+ */
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-@Table(name = "COUNTRIES")
+@Document(collection = "COUNTRIES")
 public class Country {
     @Id
     private String code;

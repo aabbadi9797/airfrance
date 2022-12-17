@@ -1,45 +1,59 @@
 package com.airfrance.test.controller;
 
 import com.airfrance.test.annotation.LogExecutionTime;
-import com.airfrance.test.exception.FunctionalException;
+import com.airfrance.test.dto.UserDto;
 import com.airfrance.test.model.User;
 import com.airfrance.test.service.IUserService;
+import lombok.AllArgsConstructor;
+import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
-import org.springframework.validation.Errors;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.server.ResponseStatusException;
 
 import javax.validation.Valid;
 
+/**
+ * Rest Controller for the User
+ */
 @RestController
 @RequestMapping("users")
 @Validated
 @Slf4j
+@RequiredArgsConstructor
 public class UserController {
-    @Autowired
-    IUserService userService;
+
+    private final IUserService userService;
     
+/**
+ * User creation API
+ * @param userDto
+ * @return userDto
+ */
     @PostMapping("/create")
     @ResponseBody
     @ResponseStatus(value = HttpStatus.CREATED)
     @LogExecutionTime
-    public User createUser(@RequestBody @Valid User user) {
+    public UserDto createUser(@RequestBody @Valid UserDto userDto) {
         try {
-            return userService.createUser(user);
+            return userService.createUser(userDto);
         } catch (Exception e){
             throw new ResponseStatusException(HttpStatus.BAD_REQUEST,e.getMessage());
         }
     }
 
+/**
+ * Get a user by its id
+ * @param id
+ * @return userDto
+ */
     @GetMapping("/{id}")
     @ResponseBody
     @ResponseStatus(value = HttpStatus.OK)
     @LogExecutionTime
-    public User getUserById(@PathVariable Long id) {
+    public UserDto getUserById(@PathVariable String id) {
         try {
             return userService.getUserById(id);
         } catch (Exception e){
