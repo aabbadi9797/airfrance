@@ -38,14 +38,14 @@ In [POSTMAN](https://www.postman.com/downloads) you click on <b>Import</b> butto
 
 
 
-Click on <b>Upload Files</b> button, or drag the file :
+Click on <b>Upload Files</b> button, then select the <b>airfrance.postman_collection.json</b> file :
 
 
 ![alt text](https://github.com/aabbadi9797/airfrance/blob/main/postman2.bmp)
 
 
 
-Select the <b>airfrance.postman_collection.json</b> file. As you see an <b>airfrance</b> collection is added in the left pannel with the API :
+Now <b>airfrance</b> collection is added in the left pannel with the API :
 
 
 ![alt text](https://github.com/aabbadi9797/airfrance/blob/main/postman3.bmp)
