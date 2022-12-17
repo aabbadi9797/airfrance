@@ -7,8 +7,14 @@ import springfox.documentation.builders.RequestHandlerSelectors;
 import springfox.documentation.spi.DocumentationType;
 import springfox.documentation.spring.web.plugins.Docket;
 
+/**
+ * Swagger Configuration
+ */
 @Configuration
 public class SpringFoxConfig {
+/**
+ * @return Docket
+ */
     @Bean
     public Docket api() {
         return new Docket(DocumentationType.SWAGGER_2)

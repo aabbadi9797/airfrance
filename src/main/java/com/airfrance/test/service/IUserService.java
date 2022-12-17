@@ -1,10 +1,23 @@
 package com.airfrance.test.service;
 
+import com.airfrance.test.dto.UserDto;
 import com.airfrance.test.exception.FunctionalException;
-import com.airfrance.test.model.User;
 
+/**
+ * User Service
+ */
 public interface IUserService {
-    User createUser(User user) throws FunctionalException;
-    
-    User getUserById(Long id) throws FunctionalException;
+/**
+ * @param userDto
+ * @return UserDto
+ * @throws FunctionalException
+ */
+    UserDto createUser(UserDto userDto) throws FunctionalException;
+
+/**
+ * @param id
+ * @return UserDto
+ * @throws FunctionalException
+ */
+    UserDto getUserById(String id) throws FunctionalException;
 }

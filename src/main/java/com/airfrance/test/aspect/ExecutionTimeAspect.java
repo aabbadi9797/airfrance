@@ -4,18 +4,23 @@ import lombok.extern.slf4j.Slf4j;
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.Around;
 import org.aspectj.lang.annotation.Aspect;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Component;
 import org.springframework.util.StopWatch;
 
+/**
+ * Execution Time aspect for logging execution time of methods
+ */
 @Aspect
 @Component
 @Slf4j
 public class ExecutionTimeAspect {
 
-private final Logger logger = LoggerFactory.getLogger(this.getClass());
-
+/**
+ * Log execution time for methods
+ * @param joinPoint
+ * @return Object
+ * @throws Throwable
+ */
 @Around("@annotation(com.airfrance.test.annotation.LogExecutionTime)")
 public Object logExecutionTime(ProceedingJoinPoint joinPoint) throws Throwable {
     final StopWatch stopWatch = new StopWatch();
@@ -26,7 +31,7 @@ public Object logExecutionTime(ProceedingJoinPoint joinPoint) throws Throwable {
     
     stopWatch.stop();
     
-    logger.info("\"{}\" executed in {} ms", joinPoint.getSignature(), stopWatch.getTotalTimeMillis());
+    log.info("\"{}\" executed in {} ms", joinPoint.getSignature(), stopWatch.getTotalTimeMillis());
     
     return proceed;
 }
