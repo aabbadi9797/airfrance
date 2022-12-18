@@ -1,7 +1,7 @@
 package com.airfrance.test.service;
 
 import com.airfrance.test.TestApplication;
-import com.airfrance.test.dto.UserDto;
+import com.airfrance.test.model.UserDto;
 import com.airfrance.test.enums.Gender;
 import com.airfrance.test.exception.FunctionalException;
 import com.airfrance.test.model.Country;

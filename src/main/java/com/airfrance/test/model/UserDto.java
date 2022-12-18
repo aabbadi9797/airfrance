@@ -1,4 +1,4 @@
-package com.airfrance.test.dto;
+package com.airfrance.test.model;
 
 import com.airfrance.test.enums.Gender;
 import com.airfrance.test.model.Country;

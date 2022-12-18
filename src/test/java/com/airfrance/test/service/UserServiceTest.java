@@ -1,7 +1,7 @@
 package com.airfrance.test.service;
 
 import com.airfrance.test.TestApplication;
-import com.airfrance.test.dto.UserDto;
+import com.airfrance.test.model.UserDto;
 import com.airfrance.test.enums.Gender;
 import com.airfrance.test.exception.FunctionalException;
 import com.airfrance.test.mapper.UserMapper;
@@ -16,7 +16,6 @@ import org.mockito.*;
 import org.mockito.junit.MockitoJUnitRunner;
 import org.springframework.boot.test.context.SpringBootTest;
 
-import static org.assertj.core.api.Assertions.anyOf;
 import static org.assertj.core.api.Assertions.assertThat;
 
 import java.time.LocalDate;
