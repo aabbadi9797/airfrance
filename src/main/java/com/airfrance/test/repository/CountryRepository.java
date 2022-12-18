@@ -8,5 +8,5 @@ import org.springframework.stereotype.Repository;
  * Country Repository
  */
 @Repository
-public interface CountryRepository extends MongoRepository<Country,Character> {
+public interface CountryRepository extends MongoRepository<Country,String> {
 }
