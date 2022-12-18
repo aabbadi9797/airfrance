@@ -1,0 +1,13 @@
+com.airfrance.test
+com.airfrance.test.annotation
+com.airfrance.test.aspect
+com.airfrance.test.config
+com.airfrance.test.controller
+com.airfrance.test.enums
+com.airfrance.test.exception
+com.airfrance.test.mapper
+com.airfrance.test.model
+com.airfrance.test.repository
+com.airfrance.test.service
+com.airfrance.test.service.impl
+com.airfrance.test.util

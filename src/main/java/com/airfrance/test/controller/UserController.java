@@ -1,13 +1,10 @@
 package com.airfrance.test.controller;
 
 import com.airfrance.test.annotation.LogExecutionTime;
-import com.airfrance.test.dto.UserDto;
-import com.airfrance.test.model.User;
+import com.airfrance.test.model.UserDto;
 import com.airfrance.test.service.IUserService;
-import lombok.AllArgsConstructor;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;

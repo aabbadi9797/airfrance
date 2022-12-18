@@ -1,6 +1,6 @@
 package com.airfrance.test.service;
 
-import com.airfrance.test.dto.UserDto;
+import com.airfrance.test.model.UserDto;
 import com.airfrance.test.exception.FunctionalException;
 
 /**

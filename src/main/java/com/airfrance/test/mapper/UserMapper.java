@@ -1,6 +1,6 @@
 package com.airfrance.test.mapper;
 
-import com.airfrance.test.dto.UserDto;
+import com.airfrance.test.model.UserDto;
 import com.airfrance.test.model.User;
 import org.mapstruct.Mapper;
 

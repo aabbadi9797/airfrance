@@ -1,17 +1,14 @@
 package com.airfrance.test.service.impl;
 
-import com.airfrance.test.dto.UserDto;
+import com.airfrance.test.model.UserDto;
 import com.airfrance.test.exception.FunctionalException;
 import com.airfrance.test.mapper.UserMapper;
 import com.airfrance.test.model.User;
 import com.airfrance.test.repository.UserRepository;
 import com.airfrance.test.service.IUserService;
 import com.airfrance.test.util.DateUtils;
-import lombok.AllArgsConstructor;
-import lombok.NoArgsConstructor;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 
