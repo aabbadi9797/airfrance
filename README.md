@@ -1,4 +1,4 @@
-# Air France test application
+# Users test application
 
 ## For cloning the project to your machine:
 
