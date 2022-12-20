@@ -34,7 +34,7 @@ GET    | /users/{id} | retrieve a user by its ID |
 In [POSTMAN](https://www.postman.com/downloads) you click on <b>Import</b> button in the top left :
 
 
-![alt text](https://github.com/aabbadi9797/users/blob/main/postman1.bmp)
+![alt text](https://github.com/aabbadi9797/users/blob/main/postman0.bmp)
 
 
 
