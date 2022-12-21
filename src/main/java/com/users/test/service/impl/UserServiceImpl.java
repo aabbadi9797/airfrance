@@ -1,9 +1,11 @@
 package com.users.test.service.impl;
 
-import com.users.test.model.UserDto;
+import com.users.test.enums.Country;
+import com.users.test.exception.RessourceNotFoundException;
+import com.users.test.model.dto.UserDto;
 import com.users.test.exception.FunctionalException;
 import com.users.test.mapper.UserMapper;
-import com.users.test.model.User;
+import com.users.test.model.entity.User;
 import com.users.test.repository.UserRepository;
 import com.users.test.service.IUserService;
 import com.users.test.util.DateUtils;
@@ -31,18 +33,22 @@ public class UserServiceImpl implements IUserService {
  */
     @Override
     public UserDto createUser(UserDto userDto) throws FunctionalException {
-        if (!DateUtils.isAdult(userDto.getBirthDate())){
-            throw new FunctionalException("Only Adult residents are allowed to create an account!");
+        try{
+            if (!DateUtils.isAdult(userDto.getBirthDate())){
+                throw new FunctionalException("Only Adult residents are allowed to create an account!");
+            }
+            if(!userDto.getCountry().equals(Country.FRANCE)){
+                throw new FunctionalException("Only French residents are allowed to create an account!");
+            }
+            if(userRepository.existsByUsername(userDto.getUsername())){
+                throw new FunctionalException("Username Already Exists!");
+            }
+            User user = userMapper.userDtoToUser(userDto);
+            user = userRepository.save(user);
+            return userMapper.userToUserDto(user);
+        }catch(NullPointerException e){
+            throw new FunctionalException("Fields required: Birthday, Username, Country!");
         }
-        if(!userDto.getCountry().getCode().equals("FRA")){
-            throw new FunctionalException("Only French residents are allowed to create an account!");
-        }
-        if(userRepository.existsByUsername(userDto.getUsername())){
-            throw new FunctionalException("Username Already Exists!");
-        }
-        User user = userMapper.userDtoToUser(userDto);
-        user = userRepository.save(user);
-        return userMapper.userToUserDto(user);
     }
 
 /**
@@ -51,8 +57,8 @@ public class UserServiceImpl implements IUserService {
  * @throws FunctionalException
  */
     @Override
-    public UserDto getUserById(String id) throws FunctionalException {
-        User user = userRepository.findById(id).orElseThrow(()-> new FunctionalException("User Not Found!"));
+    public UserDto getUserById(String id) throws RessourceNotFoundException {
+        User user = userRepository.findById(id).orElseThrow(()-> new RessourceNotFoundException("User Not Found!"));
         return userMapper.userToUserDto(user);
     }
 }

@@ -1,5 +1,7 @@
 package com.users.test.util;
 
+import com.users.test.exception.FunctionalException;
+
 import java.time.LocalDate;
 import java.time.Period;
 
@@ -12,12 +14,17 @@ public class DateUtils {
  * @param birthDate
  * @return boolean
  */
-    public static boolean isAdult(LocalDate birthDate){
-        boolean adult = true;
-        LocalDate now = LocalDate.now();
-        if (Period.between(birthDate, now).getYears()<18){
-            adult= false;
+    public static boolean isAdult(LocalDate birthDate) throws FunctionalException {
+        try {
+            boolean adult = true;
+            LocalDate now = LocalDate.now();
+            if (Period.between(birthDate, now).getYears()<18){
+                adult= false;
+            }
+            return adult;
+        }catch (Exception e){
+            throw new FunctionalException("la date de naissance n'est pas valide!");
         }
-        return adult;
+      
     }
 }

@@ -1,7 +1,9 @@
 package com.users.test.controller;
 
 import com.users.test.annotation.LogExecutionTime;
-import com.users.test.model.UserDto;
+import com.users.test.exception.FunctionalException;
+import com.users.test.exception.RessourceNotFoundException;
+import com.users.test.model.dto.UserDto;
 import com.users.test.service.IUserService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -33,12 +35,8 @@ public class UserController {
     @ResponseBody
     @ResponseStatus(value = HttpStatus.CREATED)
     @LogExecutionTime
-    public UserDto createUser(@RequestBody @Valid UserDto userDto) {
-        try {
+    public UserDto createUser(@RequestBody @Valid UserDto userDto) throws FunctionalException {
             return userService.createUser(userDto);
-        } catch (Exception e){
-            throw new ResponseStatusException(HttpStatus.BAD_REQUEST,e.getMessage());
-        }
     }
 
 /**
@@ -50,11 +48,8 @@ public class UserController {
     @ResponseBody
     @ResponseStatus(value = HttpStatus.OK)
     @LogExecutionTime
-    public UserDto getUserById(@PathVariable String id) {
-        try {
+    public UserDto getUserById(@PathVariable String id) throws RessourceNotFoundException {
             return userService.getUserById(id);
-        } catch (Exception e){
-            throw new ResponseStatusException(HttpStatus.NOT_FOUND,e.getMessage());
-        }
+
     }
 }

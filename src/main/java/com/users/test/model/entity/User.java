@@ -1,5 +1,6 @@
-package com.users.test.model;
+package com.users.test.model.entity;
 
+import com.users.test.enums.Country;
 import com.users.test.enums.Gender;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.AllArgsConstructor;
@@ -7,7 +8,6 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.springframework.data.annotation.Id;
-import org.springframework.data.mongodb.core.mapping.DBRef;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 import javax.validation.constraints.NotBlank;
@@ -41,7 +41,6 @@ public class User {
     private Gender gender;
     
     @NotNull(message = "Country should not be null")
-    @DBRef
     private Country country;
     
 }

@@ -1,6 +1,7 @@
 package com.users.test.service;
 
-import com.users.test.model.UserDto;
+import com.users.test.exception.RessourceNotFoundException;
+import com.users.test.model.dto.UserDto;
 import com.users.test.exception.FunctionalException;
 
 /**
@@ -19,5 +20,5 @@ public interface IUserService {
  * @return UserDto
  * @throws FunctionalException
  */
-    UserDto getUserById(String id) throws FunctionalException;
+    UserDto getUserById(String id) throws RessourceNotFoundException;
 }
