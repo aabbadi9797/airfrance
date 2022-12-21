@@ -24,23 +24,41 @@ import java.time.LocalDate;
 @Document(collection="USERS")
 @Builder
 public class User {
+    /**
+     * Identifier of the entity
+     */
     @Id
     private String id;
-    
+
+    /**
+     * username (Unique and not empty or blank)
+     */
     @NotBlank(message = "UserName should not be blank")
     @NotEmpty(message = "UserName should not be empty")
     @NotNull(message = "Username should not be null")
     private String username;
 
+    /**
+     * BirdthDate (Should not be null)
+     */
     @NotNull(message = "Birth Date should not be null")
     @JsonFormat(pattern="yyyy-MM-dd")
     private LocalDate birthDate;
 
+    /**
+     * PhoneNumber
+     */
     private String phoneNumber;
-    
+
+    /**
+     * Gender
+     */
     private Gender gender;
-    
+
+    /**
+     * Country
+     */
     @NotNull(message = "Country should not be null")
     private Country country;
-    
+
 }

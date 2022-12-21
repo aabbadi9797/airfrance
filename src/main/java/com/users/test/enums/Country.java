@@ -3,6 +3,9 @@ package com.users.test.enums;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 
+/**
+ * Country Enumeration (contain standard countries)
+ */
 @AllArgsConstructor
 public enum Country {
     USA("United States of America"),
@@ -208,8 +211,15 @@ public enum Country {
     ZAMBIA("Zambia"),
     ZIMBABWE("Zimbabwe");
 
+    /**
+     * Libelle Country
+     */
     private String country;
 
+    /**
+     * Getter for Country libelle
+     * @return String
+     */
     private String getCountry(){
         return country;
     }

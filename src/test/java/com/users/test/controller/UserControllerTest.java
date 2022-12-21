@@ -32,13 +32,22 @@ import static org.springframework.test.web.servlet.request.MockMvcRequestBuilder
 @AutoConfigureMockMvc
 public class UserControllerTest {
 
+
+    /**
+     * MockMvc for encapsulating application beans
+     */
     @Autowired
     MockMvc mockMvc;
-    
-    
+
+    /**
+     * User Service
+     */
     @MockBean
     private UserServiceImpl userService;
-    
+
+    /**
+     * Object Mapper
+     */
     ObjectMapper objectMapper = new ObjectMapper();
  
 /**

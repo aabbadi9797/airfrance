@@ -24,6 +24,9 @@ import javax.validation.Valid;
 @RequiredArgsConstructor
 public class UserController {
 
+    /**
+     * User Service
+     */
     private final IUserService userService;
     
 /**
