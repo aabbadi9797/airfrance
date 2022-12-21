@@ -1,7 +1,7 @@
 package com.users.test.mapper;
 
-import com.users.test.model.UserDto;
-import com.users.test.model.User;
+import com.users.test.model.dto.UserDto;
+import com.users.test.model.entity.User;
 import org.mapstruct.Mapper;
 
 /**
