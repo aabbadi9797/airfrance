@@ -1,9 +1,8 @@
 {
 	"info": {
-		"_postman_id": "b86b1762-8d76-4c63-9878-d2fcb8dbc73f",
+		"_postman_id": "89583646-3929-4b52-9f99-e316669a2b11",
 		"name": "users",
-		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-		"_exporter_id": "20307417"
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
 	"item": [
 		{

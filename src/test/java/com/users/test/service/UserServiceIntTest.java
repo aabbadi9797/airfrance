@@ -26,9 +26,16 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 @SpringBootTest
 public class UserServiceIntTest {
 
+    /**
+     * User Service
+     */
     @Autowired
     IUserService userService;
 
+
+    /**
+     * User Repository
+     */
     @Autowired
     UserRepository userRepository;
 

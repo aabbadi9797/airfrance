@@ -27,12 +27,22 @@ import java.util.Optional;
  */
 @SpringBootTest
 public class UserServiceTest {
-    
+
+    /**
+     * User Repository
+     */
     @Mock
     UserRepository userRepository;
+
+    /**
+     * User Mapper
+     */
     @Mock
     UserMapper userMapper;
 
+    /**
+     * User Service
+     */
     @InjectMocks
     UserServiceImpl userService;
 
