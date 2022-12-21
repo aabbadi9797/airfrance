@@ -3,7 +3,6 @@ package com.users.test.util;
 import com.users.test.exception.FunctionalException;
 
 import java.time.LocalDate;
-import java.time.Period;
 
 /**
  * Util class for date operations and transformations
@@ -16,12 +15,8 @@ public class DateUtils {
  */
     public static boolean isAdult(LocalDate birthDate) throws FunctionalException {
         try {
-            boolean adult = true;
-            LocalDate now = LocalDate.now();
-            if (Period.between(birthDate, now).getYears()<18){
-                adult= false;
-            }
-            return adult;
+            LocalDate today = LocalDate.now();
+            return birthDate == null || (today.minusYears(18).compareTo(birthDate) >= 0);
         }catch (Exception e){
             throw new FunctionalException("la date de naissance n'est pas valide!");
         }

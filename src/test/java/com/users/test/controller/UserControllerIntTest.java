@@ -1,6 +1,5 @@
 package com.users.test.controller;
 
-import com.users.test.enums.Country;
 import com.users.test.enums.Gender;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.SerializationFeature;
@@ -28,7 +27,7 @@ import static org.springframework.test.web.servlet.request.MockMvcRequestBuilder
  */
 @SpringBootTest
 @AutoConfigureMockMvc
-public class UserControllerIntTest {
+class UserControllerIntTest {
 
     /**
      * MockMvc for encapsulating application beans
@@ -52,7 +51,7 @@ public class UserControllerIntTest {
  */
     @BeforeEach
     void init(){
-        userRepository.save(User.builder().id("1").username("user1").birthDate(LocalDate.parse("1997-11-04")).country(Country.FRANCE).phoneNumber("0612345678").gender(Gender.MALE).build());
+        userRepository.save(User.builder().id("1").username("user1").birthDate(LocalDate.parse("1997-11-04")).country("FRANCE").phoneNumber("0612345678").gender(Gender.MALE).build());
     }
 
 /**
@@ -61,7 +60,7 @@ public class UserControllerIntTest {
  */
     @Test
     void createUserIntTest() throws Exception {
-        UserDto userDto = UserDto.builder().id("9999").username("user9999").birthDate(LocalDate.parse("1997-11-04")).country(Country.FRANCE).phoneNumber("0612345678").gender(Gender.MALE).build();
+        UserDto userDto = UserDto.builder().id("9999").username("user9999").birthDate(LocalDate.parse("1997-11-04")).country("FRANCE").phoneNumber("0612345678").gender(Gender.MALE).build();
         
         objectMapper.registerModule(new JavaTimeModule());
         objectMapper.disable(SerializationFeature.WRITE_DATES_AS_TIMESTAMPS);
@@ -80,7 +79,7 @@ public class UserControllerIntTest {
  */
     @Test
     void getUserByIdTest() throws Exception {
-        UserDto userDto = UserDto.builder().id("1").username("user1").birthDate(LocalDate.parse("1997-11-04")).country(Country.FRANCE).phoneNumber("0612345678").gender(Gender.MALE).build();
+        UserDto userDto = UserDto.builder().id("1").username("user1").birthDate(LocalDate.parse("1997-11-04")).country("FRANCE").phoneNumber("0612345678").gender(Gender.MALE).build();
         mockMvc.perform(get("/users/"+userDto.getId())
                         .contentType(MediaType.APPLICATION_JSON))
                 .andExpect(MockMvcResultMatchers.status().isOk())
