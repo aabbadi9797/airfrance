@@ -1,6 +1,5 @@
 package com.users.test.model.entity;
 
-import com.users.test.enums.Country;
 import com.users.test.enums.Gender;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.AllArgsConstructor;
@@ -59,6 +58,6 @@ public class User {
      * Country
      */
     @NotNull(message = "Country should not be null")
-    private Country country;
+    private String country;
 
 }

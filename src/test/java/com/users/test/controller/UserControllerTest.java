@@ -1,8 +1,6 @@
 package com.users.test.controller;
 
-import com.users.test.enums.Country;
 import com.users.test.enums.Gender;
-import com.users.test.exception.FunctionalException;
 import com.users.test.model.dto.UserDto;
 import com.users.test.service.impl.UserServiceImpl;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -30,7 +28,7 @@ import static org.springframework.test.web.servlet.request.MockMvcRequestBuilder
  */
 @SpringBootTest
 @AutoConfigureMockMvc
-public class UserControllerTest {
+class UserControllerTest {
 
 
     /**
@@ -56,7 +54,7 @@ public class UserControllerTest {
  */
     @Test
     void createUserTest() throws Exception {
-        UserDto userDto = UserDto.builder().id("1").username("user1").birthDate(LocalDate.parse("1997-11-04")).country(Country.FRANCE).phoneNumber("0612345678").gender(Gender.MALE).build();
+        UserDto userDto = UserDto.builder().id("1").username("user1").birthDate(LocalDate.parse("1997-11-04")).country("FRANCE").phoneNumber("0612345678").gender(Gender.MALE).build();
     
         given(userService.createUser(userDto)).willReturn(userDto);
         
@@ -76,7 +74,7 @@ public class UserControllerTest {
  */
     @Test
     void getUserByIdTest() throws Exception {
-        UserDto userDto = UserDto.builder().id("1").username("user1").birthDate(LocalDate.parse("1997-11-04")).country(Country.FRANCE).phoneNumber("0612345678").gender(Gender.MALE).build();
+        UserDto userDto = UserDto.builder().id("1").username("user1").birthDate(LocalDate.parse("1997-11-04")).country("FRANCE").phoneNumber("0612345678").gender(Gender.MALE).build();
         given(userService.getUserById(userDto.getId())).willReturn(userDto);
         mockMvc.perform(get("/users/"+userDto.getId())
                                 .contentType(MediaType.APPLICATION_JSON))

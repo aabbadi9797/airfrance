@@ -1,6 +1,5 @@
 package com.users.test.model.dto;
 
-import com.users.test.enums.Country;
 import com.users.test.enums.Gender;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.*;
@@ -53,5 +52,5 @@ public class UserDto {
      * Country
      */
     @NotNull(message = "Country should not be null")
-    private Country country;
+    private String country;
 }

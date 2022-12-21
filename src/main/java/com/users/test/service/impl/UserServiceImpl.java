@@ -39,22 +39,21 @@ public class UserServiceImpl implements IUserService {
  */
     @Override
     public UserDto createUser(UserDto userDto) throws FunctionalException {
-        try{
-            if (!DateUtils.isAdult(userDto.getBirthDate())){
-                throw new FunctionalException("Only Adult residents are allowed to create an account!");
-            }
-            if(!userDto.getCountry().equals(Country.FRANCE)){
-                throw new FunctionalException("Only French residents are allowed to create an account!");
-            }
-            if(userRepository.existsByUsername(userDto.getUsername())){
-                throw new FunctionalException("Username Already Exists!");
-            }
-            User user = userMapper.userDtoToUser(userDto);
-            user = userRepository.save(user);
-            return userMapper.userToUserDto(user);
-        }catch(NullPointerException e){
-            throw new FunctionalException("Fields required: Birthday, Username, Country!");
+        if(userDto == null) {
+            throw new FunctionalException("userDto can not be null!");
         }
+        if (!DateUtils.isAdult(userDto.getBirthDate())){
+            throw new FunctionalException("Only Adult residents are allowed to create an account!");
+        }
+        if(!Country.FRANCE.name().equals(userDto.getCountry())){
+            throw new FunctionalException("Only French residents are allowed to create an account!");
+        }
+        if(userRepository.existsByUsername(userDto.getUsername())){
+            throw new FunctionalException("Username Already Exists!");
+        }
+        User user = userMapper.userDtoToUser(userDto);
+        user = userRepository.save(user);
+        return userMapper.userToUserDto(user);
     }
 
 /**
