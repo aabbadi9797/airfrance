@@ -28,3 +28,11 @@ Les deux class notiennent les méthodes:
 - **predict** faire prediction (prend les Xt) 
 - **get_coeffs** les Coeficients estimés (les X)
 - **determination_coefficient** R2 le coefficient de détermination
+
+## main.py:
+Ce fichier contient le test de 'OrdinaryLaestSquares' avec une BD 'fuel2001' contenant la consommation de carburant entre les 50 états des USA et le district de
+Columbia.
+
+![alt text](coef.bmp)
+![alt text](pred.bmp)
+![alt text](R2.bmp)
